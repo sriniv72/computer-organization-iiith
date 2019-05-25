@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1671.2">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 11.0px; font: 10.0px Arial; color: #1a1a1a; -webkit-text-stroke: #1a1a1a; background-color: #ffffff}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;html&gt;</span></p>
+<p class="p1"><span class="s1">   &lt;head&gt;</span></p>
+<p class="p1"><span class="s1">      &lt;title&gt; Integer Arithmetic&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1">      &lt;h1&gt; Integer Arithmetic &lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1">      &lt;style&gt;</span></p>
+<p class="p1"><span class="s1">         .panel {</span></p>
+<p class="p1"><span class="s1">           width:400px;</span></p>
+<p class="p1"><span class="s1">           height:160px;</span></p>
+<p class="p1"><span class="s1">           background-color: #E6E6FA;</span></p>
+<p class="p1"><span class="s1">           border:2px solid blue;  </span></p>
+<p class="p1"><span class="s1">           font-weight: bold;</span></p>
+<p class="p1"><span class="s1">           font-size: 110%;   </span></p>
+<p class="p1"><span class="s1">           margin-left:30px;</span></p>
+<p class="p1"><span class="s1">           margin-top:15px; </span></p>
+<p class="p1"><span class="s1">         }    </span></p>
+<p class="p1"><span class="s1">         p {</span></p>
+<p class="p1"><span class="s1">           margin-left: 30px;</span></p>
+<p class="p1"><span class="s1">           margin-top: 15px;</span></p>
+<p class="p1"><span class="s1">         }</span></p>
+<p class="p1"><span class="s1">         form {</span></p>
+<p class="p1"><span class="s1">           margin-left: 30px;</span></p>
+<p class="p1"><span class="s1">           margin-top: 15px;</span></p>
+<p class="p1"><span class="s1">         }</span></p>
+<p class="p1"><span class="s1">         button {</span></p>
+<p class="p1"><span class="s1">           margin-left:40px;</span></p>
+<p class="p1"><span class="s1">           margin-top:10px;</span></p>
+<p class="p1"><span class="s1">         }</span></p>
+<p class="p1"><span class="s1">         .answer {</span></p>
+<p class="p1"><span class="s1">           width:400px;</span></p>
+<p class="p1"><span class="s1">           height:90px;</span></p>
+<p class="p1"><span class="s1">           background-color: #E6E6FA;</span></p>
+<p class="p1"><span class="s1">           border:2px solid blue;  </span></p>
+<p class="p1"><span class="s1">           font-weight: bold;</span></p>
+<p class="p1"><span class="s1">           font-size: 110%;   </span></p>
+<p class="p1"><span class="s1">           margin-left:30px;</span></p>
+<p class="p1"><span class="s1">           margin-top:15px; </span></p>
+<p class="p1"><span class="s1">         }    </span></p>
+<p class="p1"><span class="s1">         form {</span></p>
+<p class="p1"><span class="s1">           margin-left: 70px;</span></p>
+<p class="p1"><span class="s1">           margin-top: 65px;</span></p>
+<p class="p1"><span class="s1">         }</span></p>
+<p class="p1"><span class="s1">      &lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">   &lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">   &lt;body&gt;</span></p>
+<p class="p1"><span class="s1">      &lt;div class="panel"&gt;</span></p>
+<p class="p1"><span class="s1">         &lt;p&gt;</span></p>
+<p class="p1"><span class="s1">            Enter decimal number 1 to convert and click   CONVERT.</span></p>
+<p class="p1"><span class="s1">         &lt;/p&gt;</span></p>
+<p class="p1"><span class="s1">         &lt;input type="text"&gt;</span></p>
+<p class="p1"><span class="s1">         &lt;button id="button1" name="Button1"&gt;Convert&lt;/button&gt;   </span></p>
+<p class="p1"><span class="s1">      &lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">      &lt;div class="answer" id="answer"&gt;</span></p>
+<p class="p1"><span class="s1">      &lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">      &lt;script&gt;</span></p>
+<p class="p1"><span class="s1">         var Answer = function(e) {</span></p>
+<p class="p1"><span class="s1">             var val1 = parseInt(document.getElementsByTagName("input")[0].value);</span></p>
+<p class="p1"><span class="s1">    var val2 = parseInt(document.getElementsByTagName("input")[1].value);</span></p>
+<p class="p1"><span class="s1">             document.getElementById("answer").innerHTML = val1.toString(2);</span></p>
+<p class="p1"><span class="s1">             e.preventDefault();</span></p>
+<p class="p1"><span class="s1">             return false;</span></p>
+<p class="p1"><span class="s1">          }</span></p>
+<p class="p1"><span class="s1">         document.getElementById("button1").addEventListener("click",Answer);</span></p>
+<p class="p1"><span class="s1">         &lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">      &lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">   &lt;/html&gt;</span></p>
+</body>
+</html>
