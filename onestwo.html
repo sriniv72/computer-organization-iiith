@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>First project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Integer Arithmetic</h1>
+    <p>Enter the first number : <input id="inp1" type="text" /></p>
+    <p>Enter the second number: <input id="inp2" type="text"/></p>
+  
+    <input type="button" value="Add Num" onclick="addNum(document.getElementById('inp1').value, document.getElementById('inp2').value)"/>
+    
+    <p>Unsigned Binary 1: <input id="binaryOutput1"></p>
+    <p>Unsigned Binary 2: <input id="binaryOutput2"></p>
+    <p>One's Complement 1: <input id="onesOutput1"></p>
+    <p>Two's Complement 1: <input id="twosOutput1"></p>
+    <p>One's Complement 2: <input id="onesOutput2"></p>
+    <p>Two's Complement 2: <input id="twosOutput2"></p>
+    <p>1 + 2 : <input id="ans"></p>
+</body>
+    <script>
+        function addNum(i,j){
+            //var i = document.getElementById('inp1').value; //gets number from input box and sets it to i
+            var binary1 = pad(Number(i).toString(2), 4); //converts i to binary and pads with leading zeros until 8 digits long
+            //var j = document.getElementById('inp2').value; //gets number from input box and sets it to i
+            var binary2 = pad(Number(j).toString(2), 4); //converts i to binary and pads with leading zeros until 8 digits long
+            var result = addBinary(binary1, binary2);
+	    var ones1 = binary1.toString(2).replace(/1/g, 'a').replace(/0/g, '1').replace(/a/g, '0');
+            var twos1 = pad((parseInt(ones1, 2) + 1).toString(2), 4);
+      	    var ones2 = binary2.toString(2).replace(/1/g, 'a').replace(/0/g, '1').replace(/a/g, '0');
+            var twos2 = pad((parseInt(ones2, 2) + 1).toString(2), 4);
+            document.getElementById('binaryOutput1').value = fancy(binary1); //puts the binary in the Unsigned Binary field
+	    document.getElementById('binaryOutput2').value = fancy(binary2); //puts the binary in the Unsigned Binary field
+            document.getElementById('onesOutput1').value = fancy(ones1); //puts the ones compliment in the One's Complement field
+            document.getElementById('twosOutput1').value = fancy(twos1); //puts the twos compliment in the Two's Complement field
+            document.getElementById('onesOutput2').value = fancy(ones2); //puts the ones compliment in the One's Complement field
+            document.getElementById('twosOutput2').value = fancy(twos2); //puts the twos compliment in the Two
+      	    document.getElementById('ans').value = result;
+	}
+
+	
+	function addBinary(a,b) {
+		let sum = "";
+		let carry = 0;
+		let i = a.length -1;
+		let j = b.length - 1;
+		while (i >=0 || j >=0){
+			let x = a[i] ? a[i] : '0';
+			let y = b[j] ? b[j] : '0';
+			sum = String(x ^ y ^ carry) + sum;
+			if (x == y && x != String(carry)) {
+				carry = Number(!carry);
+			}
+			i--;
+			j--;
+		}
+		if (carry) {
+			sum = String(carry) + sum;
+		}
+		return sum;
+	}
+        //adds leading zeros to achieve width
+        function pad(n, width, z) {
+            z = z || '0';
+            n = n + '';
+            return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+        }
+       //adds space every four digits
+        function fancy(b) {
+            return b.replace( /\d{4}/g, '$& ' ).replace( /\s$/,'');
+        }
+
+
+    </script>
+
+</html>
